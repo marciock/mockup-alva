@@ -1,6 +1,8 @@
-export class LegoEmpty extends HTMLElement{
+export class LegoLateral extends HTMLElement{
 
-
+static get observedAttributes(){
+    return ['wv']
+}
 
     constructor(){
         super();
@@ -87,25 +89,41 @@ export class LegoEmpty extends HTMLElement{
 
        
 
-       
+        tdA.classList.add('border-right-1');
+        tdB.classList.add('border-right-1');
+        tdC.classList.add('border-right-1');
+        tdD.classList.add('border-right-1');
+
+
+        td1.classList.add('border');
+        td3.classList.add('border');
         
 
 
+
         
 
-        td1.style.width='2em';
+        td1.style.width='4em';
         td2.style.width='2em';
-        td3.style.width='2em';
+        td3.style.width='4em';
         td4.style.width='2em';
-        td5.style.width='2em';
+        td5.style.width='4em';
         td6.style.width='2em';
-        td7.style.width='2em';
+        td7.style.width='4em';
         td8.style.width='2em';
   
-        tdA.style.width='2em';
-        tdB.style.width='2em';
-        tdC.style.width='2em';
-        tdD.style.width='2em';
+         
+            let wv=this.getAttribute('wv');
+
+            if(wv===undefined){
+                tdA.style.width='4em';
+                tdB.style.width='4em';
+                tdC.style.width='4em';
+                tdD.style.width='4em';
+            }
+           
+        
+    
   
         td1.style.height='2em';
         td2.style.height='2em';
@@ -117,10 +135,28 @@ export class LegoEmpty extends HTMLElement{
         td8.style.height='2em';
   
         tdA.style.height='2em';
-        tdB.style.height='2em';
-        tdC.style.height='2em';
-        tdD.style.height='2em';
+        tdB.style.height='4em';
+        tdC.style.height='4em';
+        tdD.style.height='4em';
 
+    }
+    attributeChangedCallback(name,oldValue,newValue){
+
+        if(name==='wv'){
+
+        const tdA=this.querySelector('[data-id="tdA"]');
+        const tdB=this.querySelector('[data-id="tdB"]');
+        const tdC=this.querySelector('[data-id="tdC"]');
+        const tdD=this.querySelector('[data-id="tdD"]');
+
+       
+            tdA.style.width=newValue;
+            tdB.style.width=newValue;
+            tdC.style.width=newValue;
+            tdD.style.width=newValue;
+       
+
+        }
     }
 
 }

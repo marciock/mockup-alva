@@ -1,7 +1,7 @@
-export class LegoEmpty extends HTMLElement{
-
-
-
+export class LegoAngle extends HTMLElement{
+static get observedAttributes(){
+    return ['wv']
+}
     constructor(){
         super();
         const tr1=document.createElement('tr');
@@ -44,7 +44,6 @@ export class LegoEmpty extends HTMLElement{
         tdC.dataset.id='tdC';
         tdD.dataset.id='tdD';
 
-
         tr1.appendChild(td1);
         tr1.appendChild(td2);
         tr1.appendChild(tdA);
@@ -65,12 +64,9 @@ export class LegoEmpty extends HTMLElement{
         this.appendChild(tr2);
         this.appendChild(tr3);
         this.appendChild(tr4);
-
-
         
     }
     connectedCallback(){
-
         const td1=this.querySelector('[data-id="td1"]');
         const td2=this.querySelector('[data-id="td2"]');
         const td3=this.querySelector('[data-id="td3"]');
@@ -85,27 +81,44 @@ export class LegoEmpty extends HTMLElement{
         const tdC=this.querySelector('[data-id="tdC"]');
         const tdD=this.querySelector('[data-id="tdD"]');
 
-       
 
+        td5.classList.add('border-bottom-1');
+        td6.classList.add('border-bottom-1');
+        tdC.classList.add('border-bottom-1');
+       // tdC.classList.add('border-right-1');
        
         
-
-
+        //td7.classList.add('border-right-1');
+      //  td8.classList.add('border-right-1');
+        tdA.classList.add('border-right-1');
+        tdB.classList.add('border-right-1');
+        tdC.classList.add('border-right-1');
         
+
+       
 
         td1.style.width='2em';
-        td2.style.width='2em';
+        td2.style.width='2.1em';
         td3.style.width='2em';
         td4.style.width='2em';
-        td5.style.width='2em';
-        td6.style.width='2em';
+        let wv=this.getAttribute('wv');
+
+        if(wv===undefined || wv===''){
+            td5.style.width='2em';
+             td6.style.width='2em';
+        }
+        
+
         td7.style.width='2em';
         td8.style.width='2em';
   
-        tdA.style.width='2em';
-        tdB.style.width='2em';
-        tdC.style.width='2em';
-        tdD.style.width='2em';
+      
+            tdA.style.width='2em';
+            tdB.style.width='2em';
+            tdC.style.width='2em';
+            tdD.style.width='2em';
+        
+        
   
         td1.style.height='2em';
         td2.style.height='2em';
@@ -119,8 +132,22 @@ export class LegoEmpty extends HTMLElement{
         tdA.style.height='2em';
         tdB.style.height='2em';
         tdC.style.height='2em';
-        tdD.style.height='2em';
+        tdD.style.height='8em';
+       
+  
 
+    }
+
+    attributeChangedCallback(name,oldValue,newValue){
+
+        if(name==='wv'){
+            const td5=this.querySelector('[data-id="td5"]');
+            const td6=this.querySelector('[data-id="td6"]');
+
+            td5.style.width=newValue;
+            td6.style.width=newValue;
+           
+        }
     }
 
 }

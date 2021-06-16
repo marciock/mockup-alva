@@ -92,7 +92,7 @@ export class LegoVert extends HTMLElement{
         tdD.classList.add('border-right-1');
         
 
-        console.log(td5)
+       
 
         td1.style.width='2em';
         td2.style.width='2.1em';

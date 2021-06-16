@@ -85,7 +85,7 @@ export class LegoFirst extends HTMLElement{
         tdC.classList.add('border-bottom-1');
         
 
-        console.log(td5)
+       
 
         td1.style.width='2em';
         td2.style.width='2em';

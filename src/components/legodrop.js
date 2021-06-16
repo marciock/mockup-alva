@@ -240,11 +240,11 @@ export class LegoDrop extends HTMLElement{
     attributeChangedCallback(name, oldValue,newValue){
 
        if(name==='rodada'){
-         console.log(newValue)
+        
           
         const rodadaTirulo=this.querySelector('[data-id="rodada"]');
 
-        console.log(rodadaTirulo)
+        
         const titulo=`Rodada - ${newValue}`;
 
         rodadaTirulo.innerHTML=titulo;
